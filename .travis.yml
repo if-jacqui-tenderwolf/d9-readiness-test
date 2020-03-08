@@ -1,0 +1,15 @@
+sudo:  required
+
+dist:  bionic
+
+git:
+  depth: false
+
+notifications:
+  email:
+    - lisa@ifsight.com
+  on_success: change
+  on_failure: always
+
+script:
+  ./tabrasa8.sh
