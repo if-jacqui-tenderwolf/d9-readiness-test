@@ -3,12 +3,20 @@ os:
 
 dist:  bionic
 
+language: php
+
+php:
+  - '7.3'
+
 services:
   - docker
 
 addons:
   hosts:
     - tabrasa8.ifdev
+
+env:
+  - COMPOSER_MEMORY_LIMIT=-1
 
 git:
   depth: false
@@ -26,8 +34,18 @@ before_install:
   - curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
   - unzip awscli-bundle.zip
   - ./awscli-bundle/install -b ~/bin/aws
+  - rm -Rf awscli-bundle.zip
+  - rm -Rf awscli-bundle
   - export PATH=~/bin:$PATH
   - mkdir -p ~/shared
+  - ./tabrasa8-before-install.sh
 
+before_script:
+  - ./tabrasa8-build.sh
+  - composer require "drush/drush"
+  - docker-compose up -d --build
+  - docker-compose ps
+  - docker-compose exec php7.3 /bin/sh -c "cd /var/www/html/docroot; ../bin/drush site:install --db-url=mysql://drupal:drupal@mariadb:3306/drupal --account-name:'admin' --account-pass:'admin' --account-mail:'ifdrupaladmin@ifsight.net' --site-name:'Tabula Rasa 8' --site-mail:'ifdrupaladmin@ifsight.net'"
+  - docker-compose exec php7.3 /bin/sh -c "cd /var/www/html/docroot; ../bin/drush cr"
 script:
-  - ./tabrasa8-test.sh
+  - docker-compose logs php7.3
