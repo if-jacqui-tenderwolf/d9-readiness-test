@@ -45,6 +45,7 @@ before_script:
   - composer require "drush/drush"
   - docker-compose up -d --build
   - docker-compose ps
+  - chmod a+w docroot/sites/default/files
   - docker-compose exec php7.3 /bin/sh -c "cd /var/www/html/docroot; ../bin/drush site:install --db-url=mysql://drupal:drupal@db/drupal --account-name='admin' --account-pass='admin' --account-mail='ifdrupaladmin@ifsight.net' --site-name='Tabula Rasa 8' --site-mail='ifdrupaladmin@ifsight.net' -y"
   - docker-compose exec php7.3 /bin/sh -c "cd /var/www/html/docroot; ../bin/drush cr"
 
