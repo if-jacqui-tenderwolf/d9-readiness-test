@@ -23,3 +23,6 @@ cp -r tabrasa8/. .
 rm -Rf tabrasa8
 
 composer install
+cd ./docroot/sites/default
+curl -O https://git.drupalcode.org/project/drupal/-/raw/8.8.x/sites/default/default.settings.php 
+cd ../../..
