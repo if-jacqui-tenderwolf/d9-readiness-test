@@ -6,7 +6,7 @@
 
 
 
-# Clones the if-lhridley Tabrasa repo from Github
+# Clones the if-lhridley Tabrasa repo from Github, which is pulled nightly from IFSight/Tabrasa8
 git clone https://github.com/if-lhridley/tabrasa8.git
 cd tabrasa8
 # Adds tracking for all remote branches to the workspace

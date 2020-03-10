@@ -38,11 +38,11 @@ before_install:
   - rm -Rf awscli-bundle
   - export PATH=~/bin:$PATH
   - mkdir -p ~/shared
-  - ./tabrasa8-before-install.sh
+  - ./tabrasa8-before-install.sh # Installs Docker Stack
 
 before_script:
-  - ./tabrasa8-build.sh
-  - composer require "drush/drush"
+  - ./tabrasa8-build.sh # Checks out TabRasa8 on "new-composer-build" branch
+  - composer install # Runs in case patches failed during initial composer build
   - docker-compose up -d --build
   - docker-compose ps
   - chmod a+w docroot/sites/default/files
