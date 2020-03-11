@@ -1,3 +1,3 @@
-# Tabla Rasa 8 Test
+# D9 Readiness Test
 
-Build Status: [![Build Status](https://travis-ci.org/if-lhridley/tabrasa8-test.svg?branch=develop)](https://travis-ci.org/if-lhridley/tabrasa8-test)
+Build Status: [![Build Status](https://travis-ci.org/if-lhridley/d9-readiness-test.svg?branch=develop)](https://travis-ci.org/if-lhridley/d9-readiness-test)

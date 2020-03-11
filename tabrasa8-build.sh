@@ -16,7 +16,7 @@ git fetch --all
 git pull --all
 git fetch --tags
 
-git checkout new-composer-build
+git checkout d9-readiness-assessment
 rm -Rf .git
 cd ..
 cp -r tabrasa8/. .

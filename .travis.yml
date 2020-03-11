@@ -52,4 +52,5 @@ before_script:
   - docker-compose exec php7.3 /bin/sh -c "cd /var/www/html/docroot; ../bin/drush cr"
 
 script:
-  - ./tabrasa8-test.sh
+  - ./d9-readiness-test-cobb.sh
+  
